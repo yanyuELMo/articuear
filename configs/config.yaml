@@ -1,0 +1,12 @@
+defaults:
+  - data: openearable
+  - experiment: whisper_to_silent
+  - model: fusion_cnn
+  - train: default
+  - _self_
+
+project:
+  name: silentspeechoe
+  task: closed_set_sentence_recognition
+  framework: pytorch_placeholder
+  todo: "Refine global experiment composition as the thesis scope stabilizes."

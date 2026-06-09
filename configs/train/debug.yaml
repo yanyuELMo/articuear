@@ -1,0 +1,8 @@
+train:
+  name: debug
+  batch_size: 4
+  num_workers: 0
+  max_epochs: 1
+  device: cpu
+  seed: 42
+  todo: "Keep this config minimal for smoke tests and local debugging."

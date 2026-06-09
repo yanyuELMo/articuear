@@ -1,0 +1,7 @@
+model:
+  name: bone_cnn
+  sensor_streams:
+    - bone_acc
+  backbone: cnn_placeholder
+  output_type: closed_set_sentence_logits
+  todo: "Specify channel dimensions and temporal receptive field."

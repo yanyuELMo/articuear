@@ -1,0 +1,8 @@
+train:
+  name: default
+  batch_size: 32
+  num_workers: 4
+  max_epochs: 50
+  device: cuda
+  seed: 42
+  todo: "Tune optimization settings after the first runnable pipeline exists."

@@ -1,0 +1,16 @@
+services:
+  dev:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    command: sleep infinity
+    working_dir: /workspace/silentspeechoe
+    volumes:
+      - ..:/workspace/silentspeechoe:cached
+    environment:
+      PYTHONPATH: /workspace/silentspeechoe/src
+      NVIDIA_VISIBLE_DEVICES: all
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility
+    gpus: all
+    shm_size: "8gb"
+    tty: true
