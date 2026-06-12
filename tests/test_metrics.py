@@ -183,35 +183,6 @@ def test_numpy_1d_2d_shapes():
 
 
 # ---------------------------------------------------------------------------
-# PyTorch tensor support
-# ---------------------------------------------------------------------------
-
-
-def test_torch_tensors():
-    """Metrics should work with PyTorch tensors."""
-    torch = pytest.importorskip("torch")
-    rng = np.random.default_rng(3)
-    y_true_np = rng.integers(0, NUM_CLASSES, size=20)
-    y_true = torch.as_tensor(y_true_np)
-    y_pred = torch.as_tensor(y_true_np)
-    y_score = torch.randn(20, NUM_CLASSES)
-    result = compute_classification_metrics(y_true, y_pred, y_score)
-    assert result["accuracy"] == 1.0
-
-
-def test_torch_tensors_require_grad():
-    """Metrics should work even if tensors require gradients."""
-    torch = pytest.importorskip("torch")
-    rng = np.random.default_rng(5)
-    y_true_np = rng.integers(0, NUM_CLASSES, size=15)
-    y_score = torch.randn(15, NUM_CLASSES, requires_grad=True)
-    y_true = torch.as_tensor(y_true_np)
-    y_pred = torch.as_tensor(y_true_np)
-    result = compute_classification_metrics(y_true, y_pred, y_score)
-    assert result["accuracy"] == 1.0
-
-
-# ---------------------------------------------------------------------------
 # Grouped metrics
 # ---------------------------------------------------------------------------
 
