@@ -29,11 +29,8 @@ dist/
 .env
 .env.*
 
-# Data artifacts. Keep only the utterance event metadata in Git.
-/data/*
-!/data/metadata/
-/data/metadata/*
-!/data/metadata/events.csv
+# Local data artifacts.
+/data/
 *.pt
 
 # Local experiment scripts

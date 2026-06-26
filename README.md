@@ -34,9 +34,9 @@ The current codebase supports:
 
 ## Tracked Repository Structure
 
-Only Git-tracked project files are described here. Large local artifacts such as
-raw sensor recordings, processed tensors, checkpoints, outputs, and ad-hoc local
-scripts are intentionally excluded from version control.
+Only Git-tracked project files are described here. Local data files, processed
+tensors, checkpoints, outputs, and ad-hoc local scripts are intentionally
+excluded from version control.
 
 ```text
 .
@@ -55,9 +55,6 @@ scripts are intentionally excluded from version control.
 │   ├── experiment/
 │   ├── model/
 │   └── train/
-├── data/
-│   └── metadata/
-│       └── events.csv
 ├── src/
 │   └── silentspeechoe/
 │       ├── config.py
@@ -114,19 +111,22 @@ utils/       Checkpointing, logging, I/O, and seed helpers.
 
 ## Data Policy
 
-Tracked data is limited to the utterance event metadata file:
+The `data/` directory is local-only and is ignored by Git. No file under
+`data/` is tracked in the repository.
+
+Local experiments may still expect dataset metadata at:
 
 ```text
 data/metadata/events.csv
 ```
 
-Raw recordings, processed tensors, model checkpoints, and experiment outputs are
-not tracked. This keeps the repository suitable for GitHub and makes the code
-reviewable without requiring the full local dataset.
+Raw recordings, metadata spreadsheets, processed tensors, model checkpoints, and
+experiment outputs are not tracked. This keeps the repository suitable for
+GitHub and makes the code reviewable without requiring the full local dataset.
 
-The tracked metadata includes utterance-level event information such as subject,
-ear, session, sentence type, label, speaking mode, repeat index, and time window
-boundaries.
+When present locally, the event metadata should include utterance-level
+information such as subject, ear, session, sentence type, label, speaking mode,
+repeat index, and time window boundaries.
 
 ## Models and Losses
 
