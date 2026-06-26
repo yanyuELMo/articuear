@@ -37,6 +37,10 @@ dist/
 # Local experiment scripts
 /scripts/
 
+# Model artifacts
+*.pt
+*.pth
+
 # Outputs
 outputs/runs/*
 !outputs/runs/.gitkeep
@@ -54,3 +58,4 @@ outputs/
 data/instructions.txt
 data/instructions2.txt
 data/数据构成.txt
+outputs/templates/*
